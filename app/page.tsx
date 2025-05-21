@@ -1,103 +1,129 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import gsap from "gsap";
+// import Image from "next/image";
+import { useState } from "react";
+import { IoReload } from "react-icons/io5";
+// import illustration01 from "@/public/images/home_01.jpg";
+// import illustration02 from "@/public/images/home_02.jpg";
+// import illustration03 from "@/public/images/home_03.png";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [num, setNum] = useState(1);
+  // const [image, setImage] = useState("home_01")
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleImageEnter = () => {
+    gsap.fromTo(
+      ".box-circle",
+      {
+        rotate: 0,
+        duration: 1,
+      },
+      {
+        rotate: 360,
+        duration: 1,
+      }
+    );
+    gsap.fromTo(
+      ".circle_01",
+      {
+        rotate: 0,
+        duration: 2,
+      },
+      {
+        rotate: 360,
+        duration: 2,
+      }
+    );
+    gsap.fromTo(
+      ".circle_02",
+      {
+        rotate: 0,
+        duration: 3,
+      },
+      {
+        rotate: 360,
+        duration: 3,
+      }
+    );
+    setNum(() => (num > 2 ? 1 : num + 1));
+  };
+
+  return (
+    <section className="h-screen flex flex-col items-center justify-center">
+      <div
+        className="box-circle"
+        style={{
+          backgroundImage: `url("/images/home_0${num}.jpg")`,
+        }}
+      >
+        <div
+          className="circle_01"
+          style={{ backgroundImage: `url("/images/home_0${num}.jpg")` }}
+        />
+        <div
+          className="circle_02"
+          style={{ backgroundImage: `url("/images/home_0${num}.jpg")` }}
+        />
+      </div>
+
+      {/* <div className="flex items-center justify-center gap-8">
+        <div className="w-[200px] h-[400px] relative">
+          <Image
+            alt="home_01"
+            src={illustration01}
+            fill
+            className="illustration-image_01"
+            onClick={handleImageEnter}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div className="w-[200px] h-[400px] relative">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            alt="home_02"
+            src={illustration02}
+            fill
+            className="illustration-image_02"
+            onClick={handleImageEnter}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+        <div className="w-[200px] h-[400px] relative">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            alt="home_03"
+            src={illustration03}
+            fill
+            className="illustration-image_03"
+            onClick={handleImageEnter}
+            // onMouseLeave={handleImageLeave}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div> */}
+
+      <h1 className="text-8xl text-center text-white text-shadow-lg my-2">
+        IMAGES ART GALLERY
+      </h1>
+
+      <div className="w-full text-white text-center">
+        <p>It`s a gallery which you can buy and use in your projects!</p>
+        <p>
+          Moreover, if you are an artist you can become an author and earn a
+          great deal!
+        </p>
+      </div>
+
+      <Link
+        href={"/sign-in"}
+        className="w-40 h-[50px] flex items-center justify-center rounded-full text-white bg-black mt-4"
+      >
+        More
+      </Link>
+      <button
+        type="button"
+        onClick={handleImageEnter}
+        className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-black mt-2 absolute right-4 bottom-4"
+      >
+        <IoReload color="#fff" />
+      </button>
+    </section>
   );
 }

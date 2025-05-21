@@ -1,26 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@theme {
+  --color-primary: #ddd;
+  --color-secondary: #000;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-primary);
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+@layer {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* logo */
+.logo {
+  @apply h-[40px] w-[40px] flex items-center justify-center border-2 rounded-full bg-secondary text-white;
+}
+
+/* navbar */
+.nav {
+  @apply w-full h-[60px] bg-white flex items-center justify-between shadow-md p-1;
+}
+.nav-link {
+  @apply h-full flex items-center border-b-2 border-transparent transition-all px-4;
+}
+
+/* modal */
+.container-modal {
+  @apply w-[400px] h-[400px] m-auto flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0 rounded-lg bg-primary border-2 border-secondary p-5;
+}
+
+/* avatar */
+.avatar {
+  @apply h-[40px] w-[40px] border-2 rounded-full bg-secondary transition-all hover:border-3 hover:border-gray-500;
+}
+
+/* search */
+.container-search {
+  @apply w-[calc(100%-16px)] flex items-center mx-auto rounded-xl bg-white mt-2 px-2;
+}
+.search {
+  @apply w-full h-[50px] rounded-md px-2;
+}
+
+/* image save / download */
+.image-save {
+  @apply w-[40px] h-[40px] flex items-center justify-center top-0 right-0 absolute bg-white rounded-full transition-all m-5 hover:bg-gray-200;
+}
+.image-download {
+  @apply w-[40px] h-[40px] flex items-center justify-center right-0 bottom-0 absolute bg-white rounded-full transition-all m-5  hover:bg-gray-200;
+}
+
+/* home / illustration */
+.illustration-image_01 {
+  @apply rounded-lg object-cover cursor-pointer -translate-y-1 transition-all hover:scale-[1.1];
+}
+.illustration-image_02 {
+  @apply rounded-lg object-cover cursor-pointer -translate-y-5 transition-all hover:scale-[1.1];
+}
+.illustration-image_03 {
+  @apply rounded-lg object-cover cursor-pointer -translate-y-1 transition-all hover:scale-[1.1];
+}
+
+/* circle */
+.box-circle {
+  @apply w-[100vw] h-[100vw] flex items-center justify-center top-0 left-0 right-0 bottom-0 fixed rounded-full m-auto -z-20;
+}
+.circle_01 {
+  @apply w-[80vw] h-[80vw] flex items-center justify-center top-0 left-0 right-0 bottom-0 fixed rounded-full m-auto -z-20;
+}
+.circle_02 {
+  @apply w-[60vw] h-[60vw] flex items-center justify-center top-0 left-0 right-0 bottom-0 fixed rounded-full m-auto -z-20;
 }
