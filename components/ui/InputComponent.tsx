@@ -9,7 +9,14 @@ interface Props {
   func: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ type, name, label, value, placeholder, func }: Props) => {
+const InputComponent = ({
+  type,
+  name,
+  label,
+  value,
+  placeholder,
+  func,
+}: Props) => {
   return (
     <div className="flex flex-col w-[400px] mx-auto">
       <label htmlFor={name}>{label}</label>
@@ -24,4 +31,4 @@ const Input = ({ type, name, label, value, placeholder, func }: Props) => {
   );
 };
 
-export default Input;
+export default InputComponent;

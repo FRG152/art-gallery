@@ -3,11 +3,11 @@ import Logo from "@/app/favicon.ico";
 import React from "react";
 import Image from "next/image";
 import Button from "./ui/Button";
-import { logout } from "../(auth)/sign-in/actions";
 import { IoMdHome } from "react-icons/io";
 import { FaCirclePlus } from "react-icons/fa6";
 import { IoIosSettings } from "react-icons/io";
 import { MdOutlineExplore } from "react-icons/md";
+import { logout } from "@/utils/supabase/client";
 
 const Navbar = () => {
   return (

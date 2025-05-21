@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Input from "@/app/components/ui/Input";
-import Button from "@/app/components/ui/Button";
-import { login } from "./actions";
+import Button from "@/components/ui/Button";
 import { redirect } from "next/navigation";
-import ModalComponent from "@/app/components/ui/ModalComponent";
+import ModalComponent from "@/components/ui/ModalComponent";
+import InputComponent from "@/components/ui/InputComponent";
 import { FormEvent, useState } from "react";
+import { login } from "./actions";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -14,8 +14,8 @@ const Page = () => {
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>, email: string) => {
     e.preventDefault();
-    // const result = await login(email);
-    // console.log(result)
+    const result = await login(email);
+    console.log(result);
     // setConfirmModal(true);
     redirect("/");
   };
@@ -29,7 +29,7 @@ const Page = () => {
         <h1 className="text-6xl text-center text-shadow-lg text-black">
           LOGIN
         </h1>
-        <Input
+        <InputComponent
           type="email"
           name="email"
           label="Email:"

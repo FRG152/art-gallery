@@ -2,7 +2,7 @@
 
 import { FaCheck } from "react-icons/fa";
 import { useState } from "react";
-import UploadComponent from "../components/UploadComponent";
+import UploadComponent from "@/components/UploadComponent";
 import { v4 as uuidv4 } from "uuid";
 import { createClient } from "@/utils/supabase/client";
 import { MdCleaningServices } from "react-icons/md";

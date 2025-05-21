@@ -1,6 +1,6 @@
 import { IoSearchOutline } from "react-icons/io5";
 
-const Search = () => {
+const SearchComponent = () => {
   return (
     <div className="container-search">
       <IoSearchOutline size={25} color="#000" />
@@ -15,4 +15,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchComponent;
