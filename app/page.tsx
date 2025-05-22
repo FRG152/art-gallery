@@ -18,33 +18,45 @@ export default function Home() {
       ".box-circle",
       {
         rotate: 0,
-        duration: 1,
+        filter: "blur(4px)",
+        duration: 2,
+        ease: "circ.out",
       },
       {
         rotate: 360,
-        duration: 1,
+        filter: "blur(0px)",
+        duration: 2,
+        ease: "circ.out",
       }
     );
     gsap.fromTo(
       ".circle_01",
       {
         rotate: 0,
+        filter: "blur(4px)",
         duration: 2,
+        ease: "circ.out",
       },
       {
         rotate: 360,
+        filter: "blur(0px)",
         duration: 2,
+        ease: "circ.out",
       }
     );
     gsap.fromTo(
       ".circle_02",
       {
         rotate: 0,
-        duration: 3,
+        filter: "blur(4px)",
+        duration: 2,
+        ease: "circ.out",
       },
       {
         rotate: 360,
-        duration: 3,
+        filter: "blur(0px)",
+        duration: 2,
+        ease: "circ.out",
       }
     );
     setNum(() => (num > 2 ? 1 : num + 1));

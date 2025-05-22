@@ -4,16 +4,23 @@ import Image from "next/image";
 import { LuDownload } from "react-icons/lu";
 import { AiOutlineSave } from "react-icons/ai";
 import { useState } from "react";
+import { useGlobalContext } from "@/context";
 
 interface Props {
   url: string;
 }
 
 const ImageComponent = ({ url }: Props) => {
+  const { setUrl } = useGlobalContext();
   const [hover, setHover] = useState(false);
+
+  const selectImage = () => {
+    setUrl(url);
+  };
 
   return (
     <div
+      onClick={selectImage}
       className="relative cursor-pointer"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

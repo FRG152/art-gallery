@@ -59,7 +59,7 @@ input {
 
 /* navbar */
 .nav {
-  @apply w-full h-[60px] bg-white flex items-center justify-between shadow-md p-1;
+  @apply w-full h-[60px] bg-white flex items-center justify-center shadow-md;
 }
 .nav-link {
   @apply h-full flex items-center border-b-2 border-transparent transition-all px-4;

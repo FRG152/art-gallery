@@ -1,19 +1,20 @@
+"use client";
+
 import Image from "next/image";
-import { createClient } from "@/utils/supabase/server";
-import React, { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import { useGlobalContext } from "@/context";
 
-const page = () => {
-  const supabase = createClient();
+const Page = () => {
+  const { url } = useGlobalContext();
 
-  useEffect(() => {
-    // const {data: {user}} = supabase.auth.getUser();
-  }, []);
+  console.log(url);
 
   return (
     <div>
-      <Image alt="image" src={""} height={400} width={400} />
+      <Navbar />
+      {/* <Image alt="image" src={url} height={400} width={400} /> */}
     </div>
   );
 };
 
-export default page;
+export default Page;
